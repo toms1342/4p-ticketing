@@ -1,46 +1,4 @@
 <?php
-# MantisBT - A PHP based bugtracking system
-
-# MantisBT is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 2 of the License, or
-# (at your option) any later version.
-#
-# MantisBT is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with MantisBT.  If not, see <http://www.gnu.org/licenses/>.
-
-/**
- * MantisBT schema definition
- * The schema is defined as a numbered list of updates, stored as an array.
- *
- * Each upgrade step consists of two elements:
- *
- * 1. The function to generate SQL statements. Available functions are
- *    - Data dictionary operations from ADOdb library; one of:
- *      CreateTableSQL, ChangeTableSQL, RenameTableSQL, DropTableSQL,
- *      AddColumnSQL, AlterColumnSQL, RenameColumnSQL, DropColumnSQL,
- *      CreateIndexSQL, DropIndexSQL
- *    - InsertData: local function to add data to the db
- *    - UpdateFunction: local function to perform arbitrary changes;
- *      the function must be defined in install_helper_functions_api.php
- *      with 'install_' prefix
- *    - null: no-op upgrade step
- *
- * 2. An array of the parameters to be passed to the function.
- *
- * The integrity of the schema relies on strict ordering of this array.
- * - ONLY ADD NEW CHANGES TO THE END OF THE TABLE!!!
- *   Always specify the schema step (array key), for documentation purposes
- * - NEVER SKIP AN INDEX IN THE SEQUENCE!!!
- *
- * 'Release markers' are placed right AFTER the last schema step that is
- * included in the corresponding release
- */
 
 /**
  * @uses install_helper_functions_api.php
